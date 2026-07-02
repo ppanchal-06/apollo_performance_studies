@@ -14,6 +14,12 @@ tcp_server: tcp_server.cpp
 tcp_client: tcp_client.cpp
 	$(CXX) $(CXXFLAGS) $< -o $@ $(LDFLAGS)
 
+tcp_server_test: tcp_server_test.cpp
+	$(CXX) $(CXXFLAGS) $< -o $@ $(LDFLAGS)
+
+tcp_client_test: tcp_client_test.cpp
+	$(CXX) $(CXXFLAGS) $< -o $@ $(LDFLAGS)
+
 clean:
 	rm -f $(TARGETS)
 
