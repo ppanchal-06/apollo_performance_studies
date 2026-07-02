@@ -30,23 +30,25 @@ int main(int argc, char* argv[]) {
     }
 
     std::vector<SizeLabel> sizes;
-
-    // for (int i = 1; i <= 100; ++i) { // 0.1MB to 10.0MB
-    //     double size_mb = i * 0.1;
-    //     size_t size_bytes = static_cast<size_t>(size_mb * 1024 * 1024);
-    //     std::ostringstream label;
-    //     label << std::fixed << std::setprecision(1) << size_mb << "MB";
-    //     sizes.push_back({size_bytes, label.str()});
-    // }
-    
-    for (int i = 1; i <= 2; ++i) { // 0.1MB to 10.0MB
+    //     std::vector<SizeLabel> sizes = {
+    //     {1 * 1024, "1KB"}, {100 * 1024, "100KB"}, {200 * 1024, "200KB"},
+    //     {500 * 1024, "500KB"}, {750 * 1024, "750KB"}, {1 * 1024 * 1024, "1MB"},
+    //     {2 * 1024 * 1024, "2MB"}, {3 * 1024 * 1024, "3MB"}, {5 * 1024 * 1024, "5MB"},
+    //     {7 * 1024 * 1024, "7MB"}, {9 * 1024 * 1024, "9MB"}, {10 * 1024 * 1024, "10MB"},
+    //     {11 * 1024 * 1024, "11MB"}, {13 * 1024 * 1024, "13MB"}, {15 * 1024 * 1024, "15MB"},
+    //     {17 * 1024 * 1024, "17MB"}, {20 * 1024 * 1024, "20MB"}, {22 * 1024 * 1024, "22MB"},
+    //     {25 * 1024 * 1024, "25MB"}, {28 * 1024 * 1024, "28MB"}, {32 * 1024 * 1024, "32MB"},
+    //     {35 * 1024 * 1024, "35MB"}, {40 * 1024 * 1024, "40MB"}, {50 * 1024 * 1024, "50MB"},
+    //     {100 * 1024 * 1024, "100MB"}, {200 * 1024 * 1024, "200MB"}
+    // };
+    for (int i = 1; i <= 100; ++i) { // 0.1MB to 10.0MB
         double size_mb = i * 0.1;
         size_t size_bytes = static_cast<size_t>(size_mb * 1024 * 1024);
         std::ostringstream label;
         label << std::fixed << std::setprecision(1) << size_mb << "MB";
         sizes.push_back({size_bytes, label.str()});
     }
-    
+
 
     const int trials_per_size = 20;
     std::ofstream csv(output_file);
@@ -108,4 +110,3 @@ int main(int argc, char* argv[]) {
 
     return 0;
 }
-
